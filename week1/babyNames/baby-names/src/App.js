@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import "./App.css";
-import {names} from "./baby-names-data.js";
-import NameColor from "./NameColor";
-import NamesList from "./NameList";
-import {sortByName, filterByGender} from './sorting.js'
+import {names} from "./data/baby-names-data.js";
+import NameColor from "./components/NameColor";
+import NamesList from "./components/NameList";
+import {sortByName, filterByGender} from './components/sorting.js'
 
 
 function App() {
@@ -18,13 +18,7 @@ function App() {
         <button onClick={() => setGender("m")}>Boys</button>
       </div>
       <div className="names">
-       {filteredNames.map((item)=> (
-        <NameColor 
-        key= {item.id}
-        name={item.name}
-        sex={item.sex} />
-       )
-       )}
+       {<NamesList names={filteredNames} />}
       </div>
     {/* <NamesList names={names} /> */}
       
