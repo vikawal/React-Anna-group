@@ -1,4 +1,5 @@
 import React from 'react';
+import "./nameColor.css";
 
 function NameColor ({ name, sex}) {
   const color = sex === "m" ? "blue" : "red";
