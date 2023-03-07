@@ -4,6 +4,7 @@ import {names} from "./data/baby-names-data.js";
 // import NameColor from "./components/NameColor";
 import NamesList from "./components/NameList";
 import {sortByName, filterByGender} from './components/sorting.js'
+import RadioButtons from "./components/radioButtons";
 
 
 function App() {
@@ -13,9 +14,10 @@ function App() {
   return (
     <div className="App">
       <div className="buttons">
-      <button onClick={() => setGender("")}>All</button>
+      { <RadioButtons gender={gender} setGender={setGender} />
+      /* <button onClick={() => setGender("")}>All</button>
         <button onClick={() => setGender("f")}>Girls</button>
-        <button onClick={() => setGender("m")}>Boys</button>
+        <button onClick={() => setGender("m")}>Boys</button> */}
       </div>
       <div className="names">
        {<NamesList names={filteredNames} />}
