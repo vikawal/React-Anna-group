@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./App.css";
 import {names} from "./data/baby-names-data.js";
-import NameColor from "./components/NameColor";
+// import NameColor from "./components/NameColor";
 import NamesList from "./components/NameList";
 import {sortByName, filterByGender} from './components/sorting.js'
 
