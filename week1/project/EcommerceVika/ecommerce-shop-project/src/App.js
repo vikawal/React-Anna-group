@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Categories from "./components/Categories";
 import Products from "./components/Products";
-import FilteredProductsByCategory from "./components/FilteredProductsByCategory";
+import filteredProductsByCategory from "./components/filteredProductsByCategory";
 import allCategories from "./fake-data/all-categories.js";
 import allProducts from "./fake-data/all-products.js";
 
@@ -14,7 +14,7 @@ function App() {
     setSelectedCategory(category);
   };
   
-  const filteredProducts = FilteredProductsByCategory(allProducts, selectedCategory);
+  const filteredProducts = filteredProductsByCategory(allProducts, selectedCategory);
 
   return (
     <div className="App">
@@ -22,12 +22,10 @@ function App() {
         categories={allCategories}
         selectedCategory={selectedCategory}
         handleCategoryClick={handleCategoryClick}
-        />
-        <Products 
+      />
+      <Products 
         filteredProducts={filteredProducts}
-        />
-
-        
+      />
     </div>
   );
 }
