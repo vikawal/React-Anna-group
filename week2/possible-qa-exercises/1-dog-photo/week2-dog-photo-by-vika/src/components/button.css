@@ -1,0 +1,18 @@
+button {
+  background-color: #336699;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin: auto;
+  display:block;
+}
+
+button:hover {
+  background-color: #ed0e85;
+  color: #336699;
+}
+
