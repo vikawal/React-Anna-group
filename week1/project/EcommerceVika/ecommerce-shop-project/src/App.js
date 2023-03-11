@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Categories from "./components/Categories";
 import Products from "./components/Products";
-import filteredProductsByCategory from "./components/filteredProductsByCategory";
+import filteredProductsByCategory from "./components/filteredProductsByCategory.js";
 import allCategories from "./fake-data/all-categories.js";
 import allProducts from "./fake-data/all-products.js";
 
