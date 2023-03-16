@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import "./product.css";
+import ProductAllInfo from "./ProductInfoAll"
 
 function ProductDetail () {
   const {id} = useParams();
@@ -18,7 +19,27 @@ function ProductDetail () {
     .catch((error) => {
     console.log(error);
     setLoading(false);
-    setError("Failed to load product details. Please, try again later");
+    let errorCode = "";
+          if (error.response && error.response.status) {
+            errorCode = error.response.status;
+          } else if (error.request) {
+            errorCode = "NETWORK_ERROR";
+          } else {
+            errorCode = "UNKNOWN_ERROR";
+          }
+          switch (errorCode) {
+            case 404:
+              setError("Product data not found.");
+              break;
+            case "NETWORK_ERROR":
+              setError("Network error. Please check your internet connection and try again.");
+              break;
+            case "UNKNOWN_ERROR":
+              setError("Unknown error occurred. Please try again later.");
+              break;
+            default:
+              setError("Failed to load product data. Please, try again later");
+          }   
     });
   }, [id]);
 
@@ -28,20 +49,7 @@ function ProductDetail () {
     <div className="productDetail">
         {loading && <p className="loading">Loading</p>}
         {error && <p className="error">{error}</p>}
-        {!loading && !error && (
-          <div className="product">
-            <img src={product.image} alt={product.title} />
-            <div className="product-details">
-              <div className="product-title">{product.title}</div>
-              <div className="product-price">{product.price}</div>
-              <div className="product-description">{product.description}</div>
-              <div className="product-category">{product.category}</div>
-              <div className="product-rating">
-                Rating: {product.rating.rate} ({product.rating.count} reviews)
-              </div>
-            </div>
-          </div>
-        )}
+        {!loading && !error && <ProductAllInfo product={product} />}       
     </div>
   );
 }
