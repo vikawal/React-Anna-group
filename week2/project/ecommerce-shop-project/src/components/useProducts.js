@@ -33,7 +33,7 @@ function useProducts (selectedCategory) {
           }
           switch (errorCode) {
             case 404:
-              setError("Categories data not found.");
+              setError("Products data not found.");
               break;
             case "NETWORK_ERROR":
               setError("Network error. Please check your internet connection and try again.");
@@ -42,7 +42,7 @@ function useProducts (selectedCategory) {
               setError("Unknown error occurred. Please try again later.");
               break;
             default:
-              setError("Failed to load categories data. Please, try again later");
+              setError("Failed to load products data. Please, try again later");
           }   
        });
   }, [selectedCategory]);
