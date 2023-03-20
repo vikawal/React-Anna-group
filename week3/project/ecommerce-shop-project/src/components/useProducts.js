@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+
 function useProducts (selectedCategory) {
   const [products, setProducts] = useState([]);
   const[loading, setLoading] = useState(true);
