@@ -3,7 +3,7 @@
  
  function useCategories() {
   const { data: categories, loading, error } = useFetch(
-    "https://fakestoreapi.com/products/categories"
+    "https://dummyjson.com/products/categories"
   );
 
   return { categories, loading, error };
