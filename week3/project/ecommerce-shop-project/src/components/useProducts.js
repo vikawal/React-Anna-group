@@ -1,7 +1,7 @@
 // import { useState, useEffect } from "react";
 import useFetch from "./useFetchHook";
 
-function useProducts (selectedCategory, url = "https://dummyjson.com/products") {
+function useProducts (selectedCategory, url = "https://dummyjson.com/products?limit=100") {
   const {data: products, loading, error } = useFetch(
     selectedCategory ? `${url}/category/${selectedCategory}` : url
   );
